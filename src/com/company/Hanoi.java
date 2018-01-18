@@ -5,21 +5,20 @@ package com.company;
  */
 public class Hanoi {
 
-    public int discNum;
+    public int disc;
 
     public Hanoi(){
 
     }
 
-    public void buildTower(int discNum, int start, int end){
+    public void buildTower(int discNum, int start, int spare, int end){
+        disc = discNum;
         if(discNum == 1){
-            System.out.println("Move disc " + (discNum) +  from peg " + start + " to peg " + end + ".");
+            System.out.println("Disc " + (discNum) + " to peg " + end);
         } else{
-            int spare = 6 - (start + end);
-            buildTower(discNum-1, start, end);
-            System.out.println("Move disc " + (discNum) +  from peg " + start  + " to peg " + end + ".");
-            start = spare;                   
-            buildTower(discNum-1, start,end);
+            buildTower(discNum-1, start, end, spare);
+            System.out.println("Disc " + (discNum) + " to peg " + end);
+            buildTower(discNum-1, spare, start, end);
         }
 
 
