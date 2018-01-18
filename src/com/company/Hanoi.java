@@ -11,13 +11,15 @@ public class Hanoi {
 
     }
 
-    public void buildTower(int discNum, int start, int spare, int end){
-        if(discNum == 0){
-            System.out.println("Move disc " + (discNum+1) + /*" from peg " + start +*/ " to peg " + end + ".");
+    public void buildTower(int discNum, int start, int end){
+        if(discNum == 1){
+            System.out.println("Move disc " + (discNum) +  from peg " + start + " to peg " + end + ".");
         } else{
-            buildTower(discNum-1, start, end, spare);
-            System.out.println("Move disc " + (discNum) + " to peg " + end + ".");
-            buildTower(discNum-1, spare, start,end);
+            int spare = 6 - (start + end);
+            buildTower(discNum-1, start, end);
+            System.out.println("Move disc " + (discNum) +  from peg " + start  + " to peg " + end + ".");
+            start = spare;                   
+            buildTower(discNum-1, start,end);
         }
 
 
